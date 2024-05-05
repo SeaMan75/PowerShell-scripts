@@ -88,16 +88,21 @@ $heading2Style.Font.Color = [Microsoft.Office.Interop.Word.WdColor]::wdColorAuto
 $heading1ExtraStyle = $doc.Styles.Add("Заголовок 1 Дополнительный", [Microsoft.Office.Interop.Word.WdStyleType]::wdStyleTypeParagraph)
 $heading1ExtraStyle.BaseStyle = $heading1Style
 $heading1ExtraStyle.Font.AllCaps = $true
+$heading1ExtraStyle.Font.Bold = $true
 $heading1ExtraStyle.ParagraphFormat.Alignment = [Microsoft.Office.Interop.Word.WdParagraphAlignment]::wdAlignParagraphCenter
 $heading1ExtraStyle.Font.Color = [Microsoft.Office.Interop.Word.WdColor]::wdColorAutomatic
+$heading1ExtraStyle.ParagraphFormat.PageBreakBefore = $true
 $heading1ExtraStyle.ParagraphFormat.FirstLineIndent = 0
 
 # Создание стиля "Оглавление"
 $tocStyle = $doc.Styles.Add("Оглавление", [Microsoft.Office.Interop.Word.WdStyleType]::wdStyleTypeParagraph)
 $tocStyle.Font.AllCaps = $true
-$heading1Style.Font.Bold = $true
+$tocStyle.Font.Bold = $true
 $tocStyle.ParagraphFormat.Alignment = [Microsoft.Office.Interop.Word.WdParagraphAlignment]::wdAlignParagraphCenter
+#$tocStyle.ParagraphFormat.PageBreakBefore = $true
+$tocStyle.ParagraphFormat.SpaceAfter = 18
 $tocStyle.Font.Color = [Microsoft.Office.Interop.Word.WdColor]::wdColorAutomatic
+$tocStyle.ParagraphFormat.FirstLineIndent = 0
 
 # Создание стиля "Подпись для картинок"
 $captionPicStyle = $doc.Styles.Add("Подпись для картинок", [Microsoft.Office.Interop.Word.WdStyleType]::wdStyleTypeParagraph)
